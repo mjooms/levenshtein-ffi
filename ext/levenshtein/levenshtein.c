@@ -42,7 +42,7 @@ unsigned int levenshtein (const char *word1, const char *word2) {
             /* find the least cost of insertion, deletion, or replacement */
             next = min(min( v[j+1] + 1,
                             current + 1 ),
-                            v[j] + cost );
+                            v[j] + (cost*2) );
             /* stash the previous row's cost in the column vector */
             v[j] = current;
             /* make the cost of the next transition current */
