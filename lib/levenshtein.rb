@@ -6,7 +6,9 @@ module Levenshtein
 
     # Try loading in order.
     library = File.dirname(__FILE__) + "/../ext/levenshtein/levenshtein"
+    library2 = File.dirname(__FILE__) + "/levenshtein"
     candidates = ['.bundle', '.so', '.dylib', ''].map { |ext| library + ext }
+    candidates += ['.bundle', '.so', '.dylib', ''].map { |ext| library2 + ext }
     ffi_lib(candidates)
 
     # Safe version of distance, checks that arguments are really strings.
